@@ -143,11 +143,11 @@
   % date
   \@date\\[2em]%
   % status
-  {\@status}\\%
+  {\ifthenelse{\isundefined{\@status}}{}{{\@status}\\}}%
   % references
-  {\@refprefix~\@reference}\\[1em]%
+  {\ifthenelse{\isundefined{\@reference}}{}{\@refprefix~{\@reference}\\[1em]}}%
   % subject
-  {\@subjectprefix~\@subject}\\[1.5em]%
+  {\ifthenelse{\isundefined{\@subject}}{}{\@subjectprefix~{\@subject}\\[1.5em]}}%
   % opening
   \@opening\\[1.5em]%
   % sender contact info
