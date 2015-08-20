@@ -1,0 +1,45 @@
+---
+documentclass: moderncv
+fontsize: 11pt
+papersize: a4paper
+classoption: color, final, oneside
+geometry: scale=0.846
+lang: english
+mainlang: english
+moderncv:
+  theme: oldstyle
+  options: green
+  firstname: "Saul"
+  familyname: "Goodman"
+  qualification: "Attorney At Law"
+  address:
+    street: "1 Boulevard"
+    city: "Albuquerque, NM"
+  mobile: "+001 002003004"
+  email: "saul@goodman.org"
+  extrainfo: ""
+  extrainfocv: ""
+  photo:
+    height: 64pt
+    file: ../picture.jpg
+  quote: false
+  nopagenumbers: false
+modernletter:
+  recipient:
+    name: "Shark, Shark & Sharks, LLP"
+    address: "375 Street --- Albuquerque, NM"
+  date: "Albuquerque, \\today"
+  status: "Confidential"
+  reference:
+    prefix: "Ref:"
+    ref: "000001"
+  subject:
+    prefix: "Subject:"
+    name: "Regarding "
+  opening: "Dear Sir or Madam,"
+  closing: "Best regards,"
+  enclosure: "curriculum vitæ"
+  enclosure-before: "Attached:"
+curriculumvitae: "/path/to/cv"
+enclosed: ["/path/to/enclosed/file"]
+...
