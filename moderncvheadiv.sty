@@ -1,5 +1,6 @@
 %% start of file `moderncvheadiv.sty'.
 %% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com).
+%% Modified 2015 Hugo Roy (hugo@hugoroy.eu).
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License version 1.3c,
@@ -101,6 +102,7 @@
   \if@details%
     \makecvheadinfo{%
       \addressfont\color{color2}%
+      \ifthenelse{\isundefined{\@qualification}}{}{\makenewline\@qualification}
       \ifthenelse{\isundefined{\@addressstreet}}{}{\makenewline\addresssymbol\@addressstreet%
         \ifthenelse{\equal{\@addresscity}{}}{}{\makenewline\@addresscity}% if \addresstreet is defined, \addresscity and \addresscountry will always be defined but could be empty
         \ifthenelse{\equal{\@addresscountry}{}}{}{\makenewline\@addresscountry}}%
@@ -110,7 +112,8 @@
       \ifthenelse{\isundefined{\@homepage}}{}{\makenewline\hbox to 1.0em{\homepagesymbol}~\httplink{\@homepage}}%
       \collectionloop{socials}{% the key holds the social type (=symbol command prefix), the item holds the link
         \makenewline\hbox to 1.0em{\csname\collectionloopkey socialsymbol\endcsname}~\collectionloopitem}%
-      \ifthenelse{\isundefined{\@extrainfo}}{}{\makenewline\@extrainfo}}\fi}
+      \ifthenelse{\isundefined{\@extrainfo}}{}{\makenewline\@extrainfo}
+      \ifthenelse{\isundefined{\@extrainfocv}}{}{\makenewline\@extrainfocv}}\fi}
 
 
 %-------------------------------------------------------------------------------
@@ -136,9 +139,15 @@
   % recipient block
   {\addressfont%
     {\bfseries\upshape\@recipientname}\\%
-    \@recipientaddress}\\[1em]%
+    \@recipientaddress}\hfill
   % date
   \@date\\[2em]%
+  % status
+  {\@status}\\%
+  % references
+  {\@refprefix~\@reference}\\[1em]%
+  % subject
+  {\@subjectprefix~\@subject}\\[1.5em]%
   % opening
   \@opening\\[1.5em]%
   % sender contact info
@@ -147,6 +156,7 @@
     \marginpar{%
       \addressfont\textcolor{color2}{%
         {\bfseries\@firstname~\@lastname}\@firstdetailselementfalse%
+        \ifthenelse{\isundefined{\@qualification}}{}{\makenewline\@qualification}
         \ifthenelse{\isundefined{\@addressstreet}}{}{\makenewline\addresssymbol\@addressstreet%
           \ifthenelse{\equal{\@addresscity}{}}{}{\makenewline\@addresscity}% if \addresstreet is defined, \addresscity and \addresscountry will always be defined but could be empty
           \ifthenelse{\equal{\@addresscountry}{}}{}{\makenewline\@addresscountry}}%

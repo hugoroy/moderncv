@@ -1,5 +1,6 @@
 %% start of file `moderncv.cls'.
 %% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com).
+%% Modified 2015 Hugo Roy (hugo@hugoroy.eu).
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License version 1.3c,
@@ -230,6 +231,10 @@
 % usage: \title{<title>}
 \renewcommand*{\title}[1]{\def\@title{#1}}
 
+% defines one's qualification (optional)
+% usage: \qualification{<qualification>}
+\newcommand*{\qualification}[1]{\def\@qualification{#1}}
+
 % defines one's address (optional)
 % usage: \address{<street>}{<city>}{<country>}
 % where the <city> and <country> arguments can be omitted or provided empty
@@ -265,6 +270,10 @@
 % defines additional personal information (optional)
 % usage: \extrainfo{<text>}
 \newcommand*{\extrainfo}[1]{\def\@extrainfo{#1}}
+
+% defines additional personal information for the CV (optional)
+% usage: \extrainfocv{<text>}
+\newcommand*{\extrainfocv}[1]{\def\@extrainfocv{#1}}
 
 % colors
 %-------
@@ -656,6 +665,11 @@
 % elements
 \newcommand*{\recipient}[2]{\def\@recipientname{#1}\def\@recipientaddress{#2}}
 \renewcommand*{\date}[1]{\def\@date{#1}}\date{\today}
+\newcommand*{\status}[1]{\def\@status{#1}}
+\newcommand*{\refprefix}[1]{\def\@refprefix{#1}}
+\newcommand*{\reference}[1]{\def\@reference{#1}}
+\newcommand*{\subjectprefix}[1]{\def\@subjectprefix{#1}}
+\newcommand*{\subject}[1]{\def\@subject{#1}}
 \newcommand*{\opening}[1]{\def\@opening{#1}}
 \newcommand*{\closing}[1]{\def\@closing{#1}}
 \newcommand*{\enclosure}[2][]{%
