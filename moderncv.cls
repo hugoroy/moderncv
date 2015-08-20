@@ -1,5 +1,6 @@
 %% start of file `moderncv.cls'.
 %% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com).
+%% Modified 2015 Hugo Roy (hugo@hugoroy.eu).
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License version 1.3c,
@@ -10,7 +11,7 @@
 %                identification
 %-------------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{moderncv}[2015/07/28 v2.0.0 modern curriculum vitae and letter document class]
+\ProvidesClass{moderncv}[2015/08/20 v2.0.0 modern curriculum vitae and letter document class]
 
 
 %-------------------------------------------------------------------------------
@@ -83,32 +84,36 @@
 % color
 \RequirePackage[table]{xcolor}
 
-% font loading
-\RequirePackage{ifxetex,ifluatex}
-\newif\ifxetexorluatex
-\ifxetex
-  \xetexorluatextrue
-\else
-  \ifluatex
-    \xetexorluatextrue
-  \else
-    \xetexorluatexfalse
-  \fi
-\fi
-% automatic loading of latin modern fonts
-%\ifxetexorluatex
-%  \RequirePackage{fontspec}
-%  \defaultfontfeatures{Ligatures=TeX}
-%  \RequirePackage{unicode-math}
-%  \setmainfont{Latin Modern}
-%  \setsansfont{Latin Modern Sans}
-%  \setmathfont{Latin Modern Math}
-%\else
-  \RequirePackage[T1]{fontenc}
-  \IfFileExists{lmodern.sty}%
-    {\RequirePackage{lmodern}}%
-    {}
-%\fi
+%% Modified 2015 Hugo Roy (hugo@hugoroy.eu).
+
+%% % font loading
+%% \RequirePackage{ifxetex,ifluatex}
+%% \newif\ifxetexorluatex
+%% \ifxetex
+%%   \xetexorluatextrue
+%% \else
+%%   \ifluatex
+%%     \xetexorluatextrue
+%%   \else
+%%     \xetexorluatexfalse
+%%   \fi
+%% \fi
+%% % automatic loading of latin modern fonts
+%% %\ifxetexorluatex
+%% %  \RequirePackage{fontspec}
+%% %  \defaultfontfeatures{Ligatures=TeX}
+%% %  \RequirePackage{unicode-math}
+%% %  \setmainfont{Latin Modern}
+%% %  \setsansfont{Latin Modern Sans}
+%% %  \setmathfont{Latin Modern Math}
+%% %\else
+%%   \RequirePackage[T1]{fontenc}
+%%   \IfFileExists{lmodern.sty}%
+%%     {\RequirePackage{lmodern}}%
+%%     {}
+%% %\fi
+
+%% End-Modified 2015 Hugo Roy (hugo@hugoroy.eu).
 
 % hyper links (hyperref is loaded at the end of the preamble to pass options required by loaded packages such as CJK)
 \newcommand*\pdfpagemode{UseNone}% do not show thumbnails or bookmarks on opening (on supporting browsers); set \pdfpagemode to "UseOutlines" to show bookmarks
@@ -116,21 +121,27 @@
 \urlstyle{tt}
 \AtEndPreamble{
   \pagenumbering{arabic}% has to be issued before loading hyperref, as to set \thepage and hence to avoid hyperref issuing a warning and setting pdfpagelabels=false
-  \RequirePackage[unicode]{hyperref}% unicode is required for unicode pdf metadata
-  \hypersetup{
-    breaklinks,
-    baseurl       = http://,
-    pdfborder     = 0 0 0,
-    pdfpagemode   = \pdfpagemode,
-    pdfstartpage  = 1,
-    pdfcreator    = {\LaTeX{} with 'moderncv' package},
-%    pdfproducer   = {\LaTeX{}},% will/should be set automatically to the correct TeX engine used
-    bookmarksopen = true,
-    bookmarksdepth= 2,% to show sections and subsections
-    pdfauthor     = {\@firstname{}~\@lastname{}},
-    pdftitle      = {\@firstname{}~\@lastname{}\notblank{\@title}{ -- \@title}{}},
-    pdfsubject    = {Resum\'{e} of \@firstname{}~\@lastname{}},
-    pdfkeywords   = {\@firstname{}~\@lastname{}, curriculum vit\ae{}, resum\'{e}}}}
+
+%% Modified 2015 Hugo Roy (hugo@hugoroy.eu).
+
+%%   \RequirePackage[unicode]{hyperref}% unicode is required for unicode pdf metadata
+%%   \hypersetup{
+%%     breaklinks,
+%%     baseurl       = http://,
+%%     pdfborder     = 0 0 0,
+%%     pdfpagemode   = \pdfpagemode,
+%%     pdfstartpage  = 1,
+%%     pdfcreator    = {\LaTeX{} with 'moderncv' package},
+%% %    pdfproducer   = {\LaTeX{}},% will/should be set automatically to the correct TeX engine used
+%%     bookmarksopen = true,
+%%     bookmarksdepth= 2,% to show sections and subsections
+%%     pdfauthor     = {\@firstname{}~\@lastname{}},
+%%     pdftitle      = {\@firstname{}~\@lastname{}\notblank{\@title}{ -- \@title}{}},
+%%     pdfsubject    = {Resum\'{e} of \@firstname{}~\@lastname{}},
+%%     pdfkeywords   = {\@firstname{}~\@lastname{}, curriculum vit\ae{}, resum\'{e}}}}
+
+%% End-Modified 2015 Hugo Roy (hugo@hugoroy.eu).
+}
 
 % graphics
 \RequirePackage{graphicx}
